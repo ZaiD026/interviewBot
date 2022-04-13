@@ -28,7 +28,7 @@
                Candiate Login
               <span class="underline" ></span>
             </button>
-            <form class="form form-login">
+            <form class="form form-login" >
               <fieldset>
                 <legend>Please, enter your user name and password for login.</legend>
                 <div class="input-block">
@@ -45,7 +45,7 @@
           </div>
           <div class="form-wrapper">
             <button type="button" class="switcher switcher-signup">
-              Interviewer
+              Interviewer Login
               <span class="underline"></span>
             </button>
             <form class="form form-signup">
@@ -205,15 +205,18 @@ button{
 
 .form {
 	overflow: hidden;
+	
 	min-width: 260px;
 	margin-top: 50px;
 	padding: 30px 25px;
+	border: 2px black;
   border-radius: 5px;
 	transform-origin: top;
 }
 
 .form-login {
 	animation: hideLogin .3s ease-out forwards;
+
 }
 
 .form-wrapper.is-active .form-login {
@@ -321,7 +324,7 @@ button{
 
 .input-block label {
 	font-size: 14px;
-  color: #a1b4b4;
+  color: #fccd4c;
 }
 
 .input-block input {
@@ -332,8 +335,8 @@ button{
 	padding-left: 15px;
 	font-size: 16px;
 	line-height: 40px;
-	color: #3b4465;
-  background: #eef9fe;
+	color: #cafaff;
+  background: #e4eff4;
   border: 1px solid #cddbef;
   border-radius: 2px;
 }

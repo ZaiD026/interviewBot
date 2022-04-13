@@ -35,22 +35,17 @@
     <div class="container">
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-          <a class="navbar-brand" href="#menu"><ul class="nav navbar-nav">
-            <li class="active"><a class="scroll" href="#menu" style="font-size: 2rem; color: #ffcd4c; background-color: rgba(0, 0, 0, 0.263); border-radius: 50px; width:170px" >Interview Bot</a></li>
-          </ul></a> </div>
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav">
-            <li class="active"><a class="scroll" href="#menu">Home</a></li>
-            <li><a class="scroll" href="#about">About</a></li>
- \           <li><a class="scroll" href="#features">Processes</a></li>
-             <li><a class="scroll" href="#contact">Contact</a></li>
-             <li><a class="scroll" href="#">Login</a></li>
-          </ul>
-        </div>
-        <!-- /.navbar-collapse -->
+         <h3 ><a href="http://" style="color:#fccd4c; font-size:24px; ">Interview Bot</a> </h3>
+         <div id="toggle1"></div>
+         <div id="sidebar">
+           <ul>
+             <li><a href="#slider" >Home</a></li>
+             <li><a href="#about" >About Us</a></li>
+             <li><a href="#features" >Process</a></li>
+             <li><a href="#contact" >Contact</a></li>
+             <li><a href="login.html" >Login</a></li>         
+            </ul>
+         </div>
       </div>
       <!-- /.container-fluid -->
     </div>
@@ -183,13 +178,6 @@
     </div>
   </div>
 </section>
-<!--Portfolio-Section-Start-->
-
-
-<!--Team-Section-Start-->
-
-<!--Testimonials-Section-Start-->
-\
 
 
 <!--Contact-Section-Start-->
@@ -259,8 +247,10 @@
     <li class="youtube hvr-pulse"><a href="#"><i class="fa fa-youtube"></i></a></li>
     <li class="instagram hvr-pulse"><a href="#"><i class="fa fa-instagram"></i></a></li>
   </ul>
-  <p> &copy; Copyright 2022 Interview Bot - Created By Zaid: <a href="#" target="_blank">Zummit</a> </p>
+  <p> &copy; Copyright 2022 Interview Bot </p>
+  <span><a href=""><i class="fa-solid fa-angle-up"></i></a></span>
 </footer>
+
 <!--Jquery-->
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <!--Boostrap-Jquery-->
@@ -284,3 +274,95 @@
 </body>
 </html>
 
+<style>
+  #toggle1{
+    background-color: black;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #toggle1::before{
+    content: '';
+    position: absolute;
+    width: 28px;
+    height: 2px;
+    background: #fff;
+    transform: translateY(-5px);
+    transition: 0.2s;
+  }
+  #toggle1::after{
+    content: '';
+    position: absolute;
+    width: 28px;
+    height: 2px;
+    background: #fff;
+    transform: translateY(5px);
+    transition: 0.2s;
+  }
+  #toggle1.active::before{
+    transform: translateY(0px)  rotate(45deg);
+  }
+  #toggle1.active::after{
+    transform: translateY(0px)  rotate(-45deg);
+  }
+  #sidebar{
+    position: fixed;
+    top:0;
+    left:-30%;
+    width: 30%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.89);
+    transition: 0.5s;
+  }
+  #sidebar ul{
+     color: #fff;
+    position: relative;
+    margin-top: 10%;
+  }
+  #sidebar ul li{
+    list-style: none;
+    display: inline-block;
+    width: 100%;
+    font-size: 24xp;
+    padding:20px;
+  } 
+  
+  
+    #sidebar ul li a{
+   font-size: 1.5em;
+   letter-spacing: 2px;
+   color: #fff;
+  }
+  #sidebar ul li a:hover{
+    color: #fccd4c;
+    }
+  #sidebar.active{
+    left: 0px;
+  }
+</style>
+
+<script>
+const toggle1=document.getElementById('toggle1');
+const sidebar=document.getElementById('sidebar');
+const link =document.getElementsByClassName('h');
+document.onclick = function(clickEvent){
+  if(clickEvent.target.id !== 'sidebar' && clickEvent.target.id !== 'toggle1'){
+    toggle1.classList.remove('active');
+    sidebar.classList.remove('active');
+  }
+}
+
+
+toggle1.onclick=function(){
+  toggle1.classList.toggle('active');
+  sidebar.classList.toggle('active');
+
+}
+</script>

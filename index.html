@@ -28,7 +28,7 @@
 
 </head>
 <body data-spy="scroll" data-target=".navbar-default" data-offset="100">
-
+ <div id="goUp"><a href="#slider"><i class="fas fa-angle-up"></i></a></div>
 <!--Navigation-->
 <header id="menu" >
   <div class="navbar navbar-default navbar-fixed-top ">
@@ -248,7 +248,7 @@
     <li class="instagram hvr-pulse"><a href="#"><i class="fa fa-instagram"></i></a></li>
   </ul>
   <p> &copy; Copyright 2022 Interview Bot </p>
-  <span><a href=""><i class="fa-solid fa-angle-up"></i></a></span>
+  <span><a href=""></a></span>
 </footer>
 
 <!--Jquery-->
@@ -287,6 +287,24 @@
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+  #goUp{
+    background-color: black;
+    width: 40px;
+    height: 40px;
+    color: #fff;
+    font-size: 24px;
+    border-radius: 20px;
+    position: fixed;
+    bottom: 30px;
+    right: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #goUp a{
+    color: #fccd4c;
   }
   #toggle1::before{
     content: '';

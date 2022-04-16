@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+
+</head>
+<body>
+   <div id="main">
+         <div id="first">
+           <img src="welcome.png" alt="" srcset="" class="img-fluid">
+         </div>
+         <div id="second">
+            <h1 class="text-center">Welcome Candidate</h1>
+            <button >Start Interview</button>
+         </div>
+   </div>
+</body>
+</html>
+<style>
+#main{
+    margin-top: 8%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+button{
+    margin-top: 5%;
+    border: 2px solid #fccd4c;
+    background: transparent;
+    width: 200px;
+    padding: 10px;
+    border-radius: 50px;
+    transition: 0.5s;
+}
+button:hover{
+    background-color: #fccd4c;
+}
+#second{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space;
+}
+@media (max-width: 800px) {
+  #main {
+    flex-direction: column;
+  }
+}
+</style>

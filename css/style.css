@@ -18,7 +18,7 @@
 }
 body {
 	font-family: 'helvetica_ce_55_romanregular';
-	background-color: whitesmoke;
+	background-color: #fff;
 }
 /*for-section-text-start-here*/
 ::selection {
@@ -95,9 +95,9 @@ color: #FFF;
 	background-repeat:no-repeat;
 }
 p {
-	font-size:13px;
-	color:#666;
-	font-weight:bolder;
+	font-size:20px;
+	color:black;
+	/* font-weight:bolder; */
 	line-height:25px;
 	font-family: 'open_sansregular';
 }
@@ -702,7 +702,7 @@ ul.nav li.active a:before {
 #pricing ul.pricing li {
 	display: block;
 	padding: 10px;
-	color:#666;
+	color:black;
 }
 #pricing ul.pricing li.plan-header {
 	background: #f8f8f8;
@@ -863,7 +863,7 @@ background:#ffcd4c;
 }
 #fun-facts .fun-fact i {
 	margin-right: 5px;
-	color:#666;
+	color:black;
 }
 #fun-facts .fun-fact h6 {
 	color:#555;
@@ -888,7 +888,7 @@ background:#ffcd4c;
 }
 .blog-info h6 {
 	margin:0;
-	color:#666;
+	color:black;
 	float:left;
 }
 .blog-info h6:hover, .blog-info h5:hover {
@@ -915,7 +915,7 @@ background:#ffcd4c;
 	font-weight:bold;
 }
 a.btn-blg {
-	color:#666;
+	color:black;
 }
 a.btn-blg:hover {
 	color:#ffcd4c;
@@ -969,13 +969,13 @@ a.btn-blg:hover {
 	font-weight:bold;
 }
 .contact-sec-1 ul.contact-form li i.fa {
-	color:#666;
+	color:black;
 	float:left;
 	margin-right:10px;
 }
 .contact-sec-1 ul.contact-form li h6 {
 	font-size:14px;
-	color:#666;
+	color:black;
 	margin:0;
 }
 .contact-sec-1 ul {
@@ -988,7 +988,7 @@ a.btn-blg:hover {
 	padding-bottom: 30px;
 }
 .contact-sec-1 ul li a {
-	color:#666;
+	color:black;
 }
 .contact-sec-1 ul li a:hover {
 	color:#ffcd4c;

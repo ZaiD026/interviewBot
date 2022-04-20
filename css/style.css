@@ -169,7 +169,7 @@ a.btn-order {
 	height: 50px;
 	width: 50px;
 	color:#fccd4c;
-	border: 2px solid#fccd4c;
+	border: 2px solid #fccd4c;
 	padding: 3% 5%;
 	font-size: 15px;
 	position: relative;
@@ -185,7 +185,7 @@ a.btn-order:hover {
 }
 a.btn-send {
 	color:#fccd4c;
-	border: 2px solid#fccd4c;
+	border: 2px solid #fccd4c;
 	padding: 2% 0%;
 	font-size: 15px;
 }
@@ -199,7 +199,7 @@ a.btn-send:hover {
 }
 /*Navigation-stylesheets-include-here*/
 .navbar-default {
-	background:rgba(248, 248, 248, 0);
+	background:rgb(0, 0, 0);
 	border:rgba(248, 248, 248, 0);
 	padding:5px 5px;
 }
@@ -239,7 +239,7 @@ ul.nav li.active a:before {
 	opacity:1;
 }
 .on {
-	background:rgba(0, 0, 0, 0.8);
+	background:rgb(0, 0, 0);
 	transition:all 0.3s;
 	-moz-transition: all 0.3s;
 	-o-transition: all 0.3s;

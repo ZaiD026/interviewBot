@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+
+</head>
+<script>
+    setTimeout("window.open('index.html','_self')",7000);
+</script>
+<body>
+   <div id="main">
+         <div id="first">
+           <img src="images/Aboutus/thankyou.png" alt="" srcset="" class="img-fluid">
+         </div>
+         <div id="second">
+            <h1 class="text-center">Thank You</h1>
+            <h2 class="text-center">For The Interview</h2>
+            <p class="font-italic">The results of the interview will be send to you on your mail soon,<br> We really appreciate you giving us a moment of your time today.</p>
+            <p class="font-italic">Have a nice day!!!</p>
+         </div>
+   </div>
+</body>
+</html>
+<style>
+	body{
+		background: url("images/background/bg2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+	}
+#main{
+    margin-top: 8%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+button{
+    margin-top: 5%;
+    border: 2px solid #fccd4c;
+    background: transparent;
+    width: 200px;
+    padding: 10px;
+    border-radius: 50px;
+    transition: 0.5s;
+}
+button:hover{
+    background-color: #fccd4c;
+}
+#second{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space;
+}
+h1 {
+    font-family: 'Playfair Display', serif;
+}
+h2{
+    font-family: 'Playfair Display', serif;
+
+}
+@media (max-width: 800px) {
+  #main {
+    flex-direction: column;
+  }
+}
+</style>

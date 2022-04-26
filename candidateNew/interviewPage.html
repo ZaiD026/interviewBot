@@ -9,27 +9,61 @@
 
 </head>
 <script>
-    // setTimeout("window.open('login.html','_self')",5000);
+ 
 </script>
 <body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <div class="container-fluid">
+      <h4 class="navbar-brand" href="#" style="color: #fccd4c;">Interview Bot</h4>
+      <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span> -->
+      </button>
+      <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item" style="color: #fccd4c;" style="margin-left:30%;">
+            <a class="nav-link " >Logout</a>
+          </li>
+        </ul>
+      </div> -->
+    </div>
+  </nav>
    <div id="main">
          <div id="first">
-             <img src="girl.gif" alt="" srcset="" class="img-fluid">
-             <p class="text" id="nextquestion"> Question here....</p>
-                   <div class="navigation-control-box">
+             <img src="images/girl.gif" alt="" srcset="" class="img-fluid">
+             <h1 class="text-center">Candidate Name</h1>
+             <p id="nextquestion" class="text-center"> Question here....</p>
+                   <!-- <div class="navigation-control-box"> -->
                      <!-- <button type="button" disabled>
                         <i class="fas fa-arrow-circle-left fa-lg"></i>
                       </button> -->
-        <button type="button" onclick="next()">
+        <!-- <button type="button" >
           <i class="fas fa-arrow-circle-right fa-lg"></i>
         </button>
         <a href="#" class="next round">&#8250;</a>
-            </div>
+            </div> -->
             </div>
             <div id="second">
-                 <h1 class="text-center">Welcome Candidate</h1>
-                    <button >Start Interview</button>
-         </div>
+                
+                 <div id="timer">
+                  <span id="min">02</span>&nbsp;:
+                  <span id="sec">00</span>
+                </div>
+                <span id="spanForAudio" class="hidden"></span>
+                <video autoplay="true" id="videoElement"></video>
+                <h2>Candidate</h2>
+                <form action="">
+                  <div class="audio-control-box">
+                    <div id="gUMbtn" class="audio-btn" onclick="show()">Start Question</div>
+                    <input type="text" id="blobString" class="hidden">
+                    <div id="stop" class="audio-btn" onclick="next()">Submit Answer</div>
+                    <button type="submit" id="submit"></button>
+             </div>
    </div>
 </body>
 </html>
@@ -59,9 +93,234 @@ button:hover{
     align-items: center;
     justify-content: space;
 }
+#timer {
+      position: absolute;
+      right: 1em;
+      top: 3.5em;
+      font-size: larger;
+    }
+
+    video {
+      height: 250px;
+      width: 250px;
+      border: 1px solid #facc6b;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    /* button {
+      height: 50px;
+      width: 200px;
+      border: #000 solid 3px;
+      background-color: transparent;
+      border-radius: 15px;
+    } */
+
+    #secondbutton {
+      width: 50px;
+      border-radius: 50%;
+      border: #000 solid 0;
+    }
+
+    .audio-control-box {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    /* img {
+      height: 250px;
+      width: 250px;
+      border: 1px solid #facc6b;
+      border-radius: 50%;
+      object-fit: cover;
+
+    } */
+
+    .navigation-control-box {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    #submit {
+      width: 0;
+      height: 0;
+      border: 0;
+      position: absolute;
+      left: -1500px;
+    }
+
+    .audio-btn {
+      margin-right: 20px;
+      border: #000 solid 3px;
+      height: 50px;
+      width: 200px;
+      background-color: transparent;
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: black;
+      cursor: pointer;
+    }
 @media (max-width: 800px) {
   #main {
     flex-direction: column;
   }
 }
 </style>
+<script>
+  document.getElementById('blobString').value = '';
+  // ===================================================Timer code ============================================================
+
+  function startTimer() {
+    let time = 60 * Number(document.querySelector('#min').innerHTML);
+    setInterval(() => {
+      if (time >= 0) {
+        document.querySelector('#min').innerHTML = `0${Math.trunc(time / 60)}`;
+        if ((time % 60) > 9) {
+          document.querySelector('#sec').innerHTML = time % 60;
+        }
+        else {
+          document.querySelector('#sec').innerHTML = `0${time % 60}`;
+        }
+        time--;
+      }
+    }, 1000);
+  }
+
+  //=============================================== video and audio code===================================================================
+  var video = document.querySelector("#videoElement");
+
+
+  if (navigator.mediaDevices.getUserMedia) {
+    navigator.mediaDevices
+      .getUserMedia({ video: true, audio: false })
+      .then(function (stream) {
+        video.srcObject = stream;
+      })
+      .catch(function (err0r) {
+        console.log("Something went wrong!");
+      });
+  }
+  // onclick Event
+
+  function next() {
+    let obj = JSON.parse(localStorage.getItem('myStorage'));
+    document.getElementById("nextquestion").innerHTML = obj[0];
+  }
+
+  //======================================================AUDIO CONTROL ==============================================================
+  let log = console.log.bind(console),
+    id = (val) => document.getElementById(val),
+    // ul = id("ul"), 
+    gUMbtn = id("gUMbtn"),
+    // start = id("start"),
+    stop = id("stop"),
+    stream,
+    recorder,
+    counter = 1,
+    chunks,
+    media
+    ;
+
+
+
+
+  gUMbtn.onclick = (e) => {
+    startTimer();
+    let mv = id("mediaVideo"),
+      mediaOptions = {
+        video: {
+          tag: "video",
+          type: "video/webm",
+          ext: ".mp4",
+          gUM: { video: true, audio: true },
+        },
+        audio: {
+          tag: "audio",
+          type: "audio/wav",
+          ext: ".wav",
+          gUM: { audio: true },
+        },
+      };
+    media = mediaOptions.audio;
+    navigator.mediaDevices
+      .getUserMedia({ audio: true })
+      .then((_stream) => {
+        stream = _stream;
+        recorder = new MediaRecorder(stream);
+        chunks = [];
+        recorder.start();
+        recorder.ondataavailable = (e) => {
+          chunks.push(e.data);
+          if (recorder.state == "inactive") {
+            createBlob();
+            clickSubmit();
+          }
+        };
+        log("got media successfully");
+      })
+      .catch(log);
+      document.getElementById('gUMbtn').style.display='none';
+  };
+
+
+  stop.onclick = (e) => {
+    stop.disabled = true;
+    recorder.stop();
+  };
+
+  // function createBlob() {
+  //   let blob = new Blob(chunks, { type: media.type });
+  //   // // url = URL.createObjectURL(blob),
+  //   // mt = document.createElement(media.tag),
+  //   // mt.src = url;
+  //   // span.appendChild(mt);
+  //   //   log(blob);
+  //   id('blobString').value = URL.createObjectURL(blob);
+  //   // li = document.createElement("li"),
+  //   // mt = document.createElement(media.tag);
+  //   // hf = document.createElement("a");
+  //   log(blob);
+
+  //   // mt.controls = true;
+  //   // mt.src = url;
+  //   // hf.href = url;
+  //   // hf.download = `${counter++}${media.ext}`;
+  //   // hf.innerHTML = `download ${hf.download}`;
+  //   // document.querySelector('.audio-control-box').appendChild(mt);
+  //   // li.appendChild(hf);
+  //   // span.appendChild(li);
+  // }
+
+  function createBlob() {
+    let blob = new Blob(chunks, { type: media.type });
+    log(blob);
+    const reader = new FileReader();
+    if (blob) {
+      reader.readAsDataURL(blob);
+    }
+    reader.addEventListener("load", function () {
+      console.log(reader.result)
+      id('blobString').value = reader.result;
+    }, false);
+  }
+  function clickSubmit() {
+    const subBtn = document.querySelector('#submit');
+    // console.log(subBtn);
+    // subBtn.classList.remove('hidden');
+    subBtn.click();
+  }
+function show(){
+ 
+}
+</script>

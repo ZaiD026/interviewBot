@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome</title>
+    <title>Interview</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 
 </head>
 <script>
  
 </script>
-<body>
+<body >
   <nav class="navbar navbar-expand-lg navbar-light bg-dark">
     <div class="container-fluid">
       <h4 class="navbar-brand" href="#" style="color: #fccd4c;">Interview Bot</h4>
@@ -33,7 +33,7 @@
       </div> -->
     </div>
   </nav>
-   <div id="main">
+   <div id="main" style="margin-bottom: 3%;">
          <div id="first">
              <img src="images/girl.gif" alt="" srcset="" class="img-fluid">
              <h1 class="text-center">Candidate Name</h1>
@@ -57,12 +57,16 @@
                 <span id="spanForAudio" class="hidden"></span>
                 <video autoplay="true" id="videoElement"></video>
                 <h2>Candidate</h2>
-                <form action="">
+                <form >
                   <div class="audio-control-box">
                     <div id="gUMbtn" class="audio-btn" onclick="show()">Start Question</div>
-                    <input type="text" id="blobString" class="hidden">
-                    <div id="stop" class="audio-btn" onclick="next()">Submit Answer</div>
                     <button type="submit" id="submit"></button>
+                    <input type="submit"  id="blobString" class="hidden">
+                    <!-- <button id="next" style=" ">next question</button> -->
+                    <button id="stop" class="audio-btn" onclick="next()">Submit Answer</button>
+                    <!-- <button type="submit" id="submit"></button> -->
+                  </div>
+                  </form>  
              </div>
    </div>
 </body>
@@ -101,8 +105,8 @@ button:hover{
     }
 
     video {
-      height: 250px;
-      width: 250px;
+      height: 300px;
+      width: 300px;
       border: 1px solid #facc6b;
       border-radius: 50%;
       object-fit: cover;
@@ -157,7 +161,9 @@ button:hover{
       position: absolute;
       left: -1500px;
     }
-
+  #stop{
+    display: none;
+  }
     .audio-btn {
       margin-right: 20px;
       border: #000 solid 3px;
@@ -179,10 +185,13 @@ button:hover{
 </style>
 <script>
   document.getElementById('blobString').value = '';
+ function a(){
+  document.getElementById('next').style.display='none';
+ }
   // ===================================================Timer code ============================================================
-
+let time;
   function startTimer() {
-    let time = 60 * Number(document.querySelector('#min').innerHTML);
+     time = 60 * Number(document.querySelector('#min').innerHTML);
     setInterval(() => {
       if (time >= 0) {
         document.querySelector('#min').innerHTML = `0${Math.trunc(time / 60)}`;
@@ -236,6 +245,8 @@ button:hover{
 
 
   gUMbtn.onclick = (e) => {
+    i=0;
+    i++;
     startTimer();
     let mv = id("mediaVideo"),
       mediaOptions = {
@@ -269,12 +280,17 @@ button:hover{
         };
         log("got media successfully");
       })
-      .catch(log);
-      document.getElementById('gUMbtn').style.display='none';
+      .catch(log); 
+      document.getElementById('gUMbtn').style.display="none";
+      // if(document.getElementById('gUMbtn').innerHTML==="Next Question"){
+        stop.style.display="block";
+      // }
+  
   };
 
 
   stop.onclick = (e) => {
+    clearTimeout(time);
     stop.disabled = true;
     recorder.stop();
   };
